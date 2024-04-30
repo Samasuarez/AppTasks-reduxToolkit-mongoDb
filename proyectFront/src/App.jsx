@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import "./App.css";
-import TaskList from "./components/TaskList.jsx";
-import TaskForm from "./components/TaskForm.jsx";
+import TaskList from "./components/tasksListContainer/TaskList.jsx"
+import TaskForm from "./components/tasksFormContainer/TaskForm.jsx";
 
 function App() {
   const tasksState = useSelector((state) => state.tasks);
-  console.log(tasksState);
-
+  // console.log(tasksState);
+  const tasksStateModal = useSelector((state) => state.modal)
+// console.log(tasksStateModal)
   return (
     <div className="App">
       <TaskList />

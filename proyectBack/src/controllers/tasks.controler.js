@@ -33,7 +33,7 @@ export const createTask = async (req, res) => {
     });
     res.status(200).send(succes);
   } catch (error) {
-    res.status(400).error(`error ${error}`);
+    res.status(400).json('error');
   }
 };
 
@@ -49,5 +49,15 @@ export const putTasksById = async (req, res) => {
     res.status(200).send(modifTask);
   } catch (error) {
     res.status(500).json(`error${error}`);
+  }
+};
+
+export const deleteTasks = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const succes = await taskModel.findByIdAndDelete(id);
+    res.status(200).send({ resultado: "OK", task: succes });
+  } catch (error) {
+    res.status(400).json(`error when deleting `);
   }
 };

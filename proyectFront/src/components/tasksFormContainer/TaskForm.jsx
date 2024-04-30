@@ -1,6 +1,8 @@
+
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask } from "../redux/taskSlice.js";
+import { addTask } from "../../redux/taskSlice.js";
+import './styles.css'
 
 const TaskForm = () => {
   const [title, setTitle] = useState("");
@@ -38,26 +40,29 @@ const TaskForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
       <input
         type="text"
         placeholder="Título"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className="form-input"
       />
       <input
         type="text"
         placeholder="Descripción"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        className="form-input"
       />
       <input
         type="text"
         placeholder="Categoría"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
+        className="form-input"
       />
-      <button type="submit">Agregar Tarea</button>
+      <button type="submit" className="form-button">Agregar Tarea</button>
     </form>
   );
 };
